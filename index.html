@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Arvest Trade Company</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="notice">DEMO / SIMULATION — all balances, profits, deposits and withdrawals are fictional.</div>
+
+<header>
+  <a class="brand" href="#home" onclick="showPage('home')">ARVEST TRADE COMPANY</a>
+  <div class="tools">
+    <select id="lang" onchange="translatePage()">
+      <option value="en">English</option><option value="fr">Français</option><option value="es">Español</option>
+      <option value="pt">Português</option><option value="ar">العربية</option><option value="zh">中文</option>
+      <option value="ja">日本語</option><option value="km">ខ្មែរ</option><option value="ur">اردو</option>
+      <option value="sw">Kiswahili</option><option value="de">Deutsch</option><option value="it">Italiano</option>
+      <option value="tr">Türkçe</option><option value="ru">Русский</option><option value="hi">हिन्दी</option>
+      <option value="bn">বাংলা</option><option value="id">Bahasa Indonesia</option><option value="ms">Bahasa Melayu</option>
+      <option value="ko">한국어</option><option value="nl">Nederlands</option><option value="pl">Polski</option>
+      <option value="yo">Yorùbá</option><option value="ha">Hausa</option><option value="ig">Igbo</option>
+    </select>
+    <button class="hamb" onclick="toggleNav()">☰</button>
+  </div>
+  <nav id="nav">
+    <a data-i="home" href="#home">Home</a>
+    <a data-i="investments" href="#investments">Investments</a>
+    <a data-i="dashboard" href="#dashboard">Dashboard</a>
+    <a data-i="deposit" href="#deposit">Deposit</a>
+    <a data-i="account" href="#account">Account</a>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="page hero">
+  <div>
+    <small>REAL ESTATE • DIGITAL ASSETS</small>
+    <h1>Arvest Trade Company</h1>
+    <p>A professional investment-platform interface for demonstration and testing. No real investment or payment service is provided.</p>
+    <button onclick="showPage('account')">Sign in / Create account</button>
+  </div>
+  <div class="heroCard"><div class="symbol">◆</div><h2>Global Portfolio</h2><p>Mobile-first design.</p></div>
+</section>
+
+<section class="section"><h2>Business Introduction</h2><video controls playsinline src="business-ad.mp4"></video></section>
+
+<section id="investments" class="page section">
+<h2>Investment Categories</h2>
+<div class="cards">
+<article><div class="big">🏠</div><h3>Real Estate</h3><p>Fictional residential and commercial portfolio examples.</p><button onclick="alert('Demo investment category only.')">Explore</button></article>
+<article><div class="big">₿</div><h3>Cryptocurrency</h3><p>Fictional Bitcoin and digital-asset portfolio examples.</p><button onclick="alert('Demo investment category only.')">Explore</button></article>
+</div></section>
+
+<section id="account" class="page section accountPage">
+<h2>Account</h2>
+<div class="authGrid">
+<div class="authCard"><h3>Sign in</h3><input id="loginEmail" type="email" placeholder="Email"><input id="loginPassword" type="password" placeholder="Password"><button onclick="demoLogin()">Sign in</button><p id="loginMsg"></p></div>
+<div class="authCard"><h3>Create account</h3><input id="name" placeholder="Full name"><input id="email" type="email" placeholder="Email"><input id="newPassword" type="password" placeholder="Password"><button onclick="createAccount()">Create account</button><p id="createMsg"></p></div>
+</div>
+<p class="securityNote">Prototype only: this page does not send credentials to a server. A production site should use secure authentication, password hashing, HTTPS and account recovery.</p>
+</section>
+
+<section id="dashboard" class="page section">
+<h2>Dashboard</h2>
+<div class="dash">
+<div class="stat blue"><span>ACTIVE DEPOSIT</span><strong>$0.00</strong></div>
+<div class="stat sky"><span>TOTAL BALANCE</span><strong id="balance">$25,000.00</strong></div>
+<div class="stat orange"><span>TOTAL WITHDRAWAL</span><strong>$4,830.00</strong></div>
+<div class="stat pink"><span>TOTAL EARNINGS</span><strong id="earnings">$0.00</strong></div>
+<div class="stat green"><span>PENDING WITHDRAWAL</span><strong id="pending">$0.00</strong></div>
+</div>
+<div class="actions"><button onclick="showPage('deposit')">＋ Deposit</button><button class="dark" onclick="withdraw()">↗ Withdrawal</button></div>
+<div class="panel"><h3>Portfolio</h3><p>Real Estate: <b>$15,000.00</b></p><p>Cryptocurrency: <b>$10,000.00</b></p><p>Simulated earnings: <b id="running">$0.00</b></p><p id="activity">No new activity.</p></div>
+</section>
+
+<section id="deposit" class="page section">
+<h2>Deposit Options</h2>
+<p class="disclosure">This is a simulation. It does not accept real cryptocurrency, wallet transfers, gift cards, gift-card images or money.</p>
+<div class="cards">
+<article><h3>₿ Cryptocurrency</h3><p>Simulated Bitcoin and other cryptocurrency workflow.</p><button onclick="crypto()">Choose Crypto</button><div id="cryptoBox" class="subbox hidden"><p><b>Demo reference:</b> DEMO-CRYPTO-NOT-A-WALLET</p><button onclick="pending('Cryptocurrency')">Create Pending Simulation</button></div></article>
+<article><h3>🎁 Gift Card</h3><p>Simulated denominations starting at $30.</p><select><option>$30</option><option>$50</option><option>$100</option><option>$250</option><option>$500</option><option>$1,000</option></select><button onclick="pending('Gift Card')">Create Pending Simulation</button><p class="small">No gift-card code or image is collected.</p></article>
+</div>
+<h3>Deposit Tutorials</h3>
+<div class="videos"><div><h4>Crypto walkthrough</h4><video controls playsinline src="crypto-demo.mp4"></video></div><div><h4>Gift-card walkthrough</h4><video controls playsinline src="giftcard-demo.mp4"></video></div></div>
+</section>
+
+<section id="admin" class="page section">
+<h2>Administrator Test Panel</h2>
+<p>For authorized testing only. It changes fictional balances and does not expose investor passwords.</p>
+<div class="admin"><label>Investor ID</label><input id="investor" value="investor-001"><label>Fictional balance</label><input id="amount" type="number" value="25000"><button onclick="setBalance()">Load Test Balance</button><button class="dark" onclick="approve()">Approve Simulated Deposit</button><p id="msg"></p></div>
+</section>
+</main>
+
+<footer>Arvest Trade Company — Educational interface prototype. Not a real investment or payment service.</footer>
+<script src="script.js"></script>
+</body></html>
